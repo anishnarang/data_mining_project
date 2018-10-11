@@ -1,0 +1,221 @@
+american (traditional),829
+food,2287
+bakeries,331
+restaurants,4310
+fast food,940
+sandwiches,695
+beer,245
+wine & spirits,245
+italian,411
+breakfast & brunch,495
+mexican,788
+chicken wings,245
+pizza,655
+japanese,361
+desserts,432
+active life,88
+salad,238
+southern,63
+american (new),603
+breweries,31
+bars,1452
+nightlife,1529
+tex-mex,74
+gay bars,38
+delis,193
+coffee & tea,712
+caterers,179
+lounges,330
+ethnic food,84
+specialty food,444
+imported food,29
+chocolatiers & shops,63
+candy stores,59
+beauty & spas,341
+hot dogs,110
+food delivery services,122
+thai,158
+sushi bars,267
+filipino,77
+hawaiian,141
+asian fusion,289
+dive bars,73
+karaoke,73
+bagels,61
+cafes,245
+tobacco shops,39
+shopping,419
+vitamins & supplements,34
+personal shopping,6
+health markets,89
+burgers,585
+hookah bars,73
+mediterranean,145
+sports bars,277
+chicken shop,58
+pet services,5
+pets,7
+pet stores,5
+seafood,360
+hobby shops,5
+british,10
+gastropubs,42
+diners,118
+dance clubs,121
+ramen,39
+chinese,453
+local services,92
+beer bar,39
+buffets,128
+pretzels,26
+meat shops,33
+seafood markets,16
+fruits & veggies,24
+butcher,15
+gluten-free,70
+cantonese,28
+steakhouses,237
+kosher,26
+persian/iranian,21
+food trucks,138
+german,6
+do-it-yourself food,22
+korean,124
+shaved ice,57
+french,68
+latin american,86
+ice cream & frozen yogurt,317
+juice bars & smoothies,288
+soup,79
+bubble tea,84
+herbs & spices,14
+cigar bars,4
+vape shops,14
+arts & crafts,8
+wine bars,86
+cupcakes,50
+organic stores,19
+barbeque,230
+food stands,76
+street vendors,70
+cocktail bars,191
+pubs,177
+fitness & instruction,19
+cajun/creole,40
+club crawl,6
+donuts,86
+strip clubs,5
+tiki bars,4
+drugstores,126
+festivals,23
+cheesesteaks,31
+izakaya,7
+tapas/small plates,52
+soul food,48
+smokehouse,5
+taiwanese,26
+hot pot,16
+dim sum,32
+casinos,102
+oxygen bars,6
+waffles,12
+vegetarian,124
+vegan,120
+wineries,8
+books,13
+mags,13
+colombian,5
+comfort food,50
+greek,55
+local flavor,50
+middle eastern,57
+falafel,5
+macarons,8
+social clubs,11
+day spas,13
+live/raw food,9
+spanish,26
+cuban,20
+custom cakes,45
+personal chefs,24
+tapas bars,48
+modern european,7
+ukrainian,3
+food court,28
+tea rooms,34
+brazilian,14
+indian,63
+lebanese,8
+russian,6
+noodles,69
+creperies,22
+coffeeshops,14
+gelato,32
+fish & chips,7
+wedding planning,12
+poke,33
+acai bowls,16
+salvadoran,22
+farmers market,41
+halal,34
+tacos,47
+vietnamese,94
+irish pub,6
+irish,13
+wraps,26
+patisserie/cake shop,13
+tuscan,3
+pasta shops,12
+szechuan,26
+popcorn shops,11
+beverage store,5
+coffee roasteries,10
+dinner theater,3
+caribbean,25
+pan asian,7
+buses,4
+kebab,5
+peruvian,11
+ethiopian,18
+argentine,5
+bartenders,12
+jazz & blues,8
+resorts,10
+african,9
+advertising,3
+belgian,3
+djs,4
+bed & breakfast,3
+country dance halls,4
+shanghainese,6
+pakistani,20
+pub food,3
+limos,11
+teppanyaki,9
+olive oil,3
+beer gardens,4
+singaporean,4
+afghan,6
+turkish,3
+puerto rican,4
+malaysian,5
+piano bars,8
+bowling,5
+laotian,4
+comedy clubs,7
+mongolian,6
+moroccan,3
+shaved snow,5
+venezuelan,5
+japanese curry,3
+brasseries,6
+walking tours,7
+himalayan/nepalese,3
+fondue,6
+cabaret,4
+bookstores,4
+new mexican cuisine,8
+whiskey bars,3
+bar crawl,7
+cafeteria,4
+champagne bars,5
