@@ -12,7 +12,9 @@ def businessToCategories(f_categories, f_business):
 		catgories_id = i[1].strip().lower()
 		business_id = i[2]
 		if catgories_id in categories:
-			business_category[business_id] = catgories_id
+			if business_id not in business_category:
+				business_category[business_id] = []
+			business_category[business_id].append(catgories_id)
 	return business_category
 
 def userProfiles(business_category, f_review):
@@ -23,13 +25,16 @@ def userProfiles(business_category, f_review):
 		business_id = i['business_id']
 		user_id = i['user_id']
 		rating = i['stars']
-		if user_id not in user_restaurants:
-			user_restaurants[user_id] = []
-		if business_id not in user_restaurants[user_id]:
-			if business_id in business_category:
-				user_restaurants[user_id].append((business_id, business_category[business_id], rating))
-			else:
-				user_restaurants[user_id].append((business_id, "General", rating))
+		if business_id in business_category:
+			if user_id not in user_restaurants:		
+				user_restaurants[user_id] = []
+			if business_id not in user_restaurants[user_id]:
+				if business_category[business_id]:
+					for category in business_category[business_id]:
+						user_restaurants[user_id].append((business_id, category, rating))
+				else:
+					user_restaurants[user_id].append((business_id, "General", rating))
+
 	return user_restaurants
 
 if __name__ == '__main__':
@@ -38,5 +43,4 @@ if __name__ == '__main__':
 	f_business = open('categories_to_business.csv', 'r')
 	business_category_mapping = businessToCategories(f_categories, f_business)
 	user_profiles = userProfiles(business_category_mapping, f_review)
-	print(user_profiles)
 
