@@ -27,13 +27,12 @@ class predictBusiness:
 
 	def foodToBusiness(self, candidate_foods):
 		candidate_business = {}
-		print(candidate_foods)
 		for user in candidate_foods:
 			foods = candidate_foods[user]
 			if user not in candidate_business:
-				candidate_business[user] = []
+				candidate_business[user] = set()
 			for food in foods:
-				candidate_business[user].extend(self.items_foods_business[food])
+				candidate_business[user].union(self.items_foods_business[food])
 		return candidate_business
 
 	def businessToFoods(self, candidate_business):
@@ -41,9 +40,9 @@ class predictBusiness:
 		for user in candidate_business:
 			businesses = candidate_business[user]
 			if user not in candidate_foods:
-				candidate_foods[user] = []
+				candidate_foods[user] = set()
 			for business in businesses:
-				candidate_foods[user].extend(self.items_business_food[business])
+				candidate_foods[user].union(self.items_business_food[business])
 		return candidate_foods
 
 	def foodsToUsers(self, candidate_foods):
@@ -51,9 +50,9 @@ class predictBusiness:
 		for user in candidate_foods:
 			foods = candidate_foods[user]
 			if user not in candidate_users:
-				candidate_users[user] = []
+				candidate_users[user] = set()
 			for food in foods:
-				candidate_users[user].extend(self.items_foods_user[food])
+				candidate_users[user].union(self.items_foods_user[food])
 		return candidate_users
 
 if __name__ == '__main__':
@@ -86,14 +85,9 @@ if __name__ == '__main__':
 
 	predictBusiness = predictBusiness(items, items_foods_business, items_business_food, items_foods_user)
 	user_to_food = predictBusiness.userToFood()
-	print("checkpoint 1")
 	d = {user_to_food.keys()[0]: user_to_food[list(user_to_food.keys())[0]]}
 	food_to_business = predictBusiness.foodToBusiness(d)																																																				
-	print("checkpoint 2")
 	full_foods = predictBusiness.businessToFoods(food_to_business)
-	print("checkpoint 3")
-	print(len(full_foods.values()))
 	user_neighbors = predictBusiness.foodsToUsers(full_foods)
-	print("checkpoint 4")
-	print(user_neighbors)												
+	print(len(user_neighbors))												
 
