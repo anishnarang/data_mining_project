@@ -1,0 +1,5 @@
+sklearn
+pickle
+flask
+flask_cors
+flask_restful

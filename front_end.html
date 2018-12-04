@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinder Eats</title>
+    <style>
+        #title{
+       		text-align: center;
+        }
+
+        #login_user_box{
+            margin-left: 25%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: 2px solid #383838;
+            border-radius: 5px;
+            width: 50%;
+            height: 2cm;
+            text-align: center;
+            padding-top: 0.5cm;
+            margin-top: 2%;
+        }
+
+        #interactive_content_box{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: 2px solid #383838;
+            border-radius: 5px;
+            width: 93%;
+            height: 9cm;
+            margin-top: 2%;
+            margin-left: 0.5cm;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            padding-left: 1%;
+            padding-right: 1%;
+        }
+
+        #similar_users_box{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+            width: 25%;
+            height: 100%;
+            float: left;
+            margin-left: 5%;
+        }
+
+        #food_recommendation_box{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+            width: 25%;
+            height: 100%;
+            float: left;
+            margin-left: 5%;
+        }
+
+        #hotel_recommendation_box{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+            width: 25%;
+            height: 100%;
+            float: left;
+            margin-left: 5%;
+        }
+
+
+        input[type=text], select {
+    width: 30%;
+    align-self: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 0cm;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+                padding: 14px 20px;
+    box-sizing: border-box;
+}
+
+        input[type=submit] {
+            width: 50%;
+            border-color:   #383838;
+            border-style: solid;
+            border-width: 2px;
+            color: black;
+            align-self: center;
+            margin-top: 0.2cm;
+            padding: 14px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+        background-color:   #383838;
+                    color: white;
+        }
+
+        input.similar_user_button{
+            width: 75%;
+        }
+
+        input.food_recommendation_button{
+            width: 75%;
+        }
+
+        input.hotel_recommendation_button{
+            width: 75%;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<h1 id="title"> Tinder Eats</h1>
+<hr>
+
+
+<div id="login_user_box">
+    <input id="login_user_name" type="text" placeholder="Login.." />
+    <input type="submit" onclick="get_similar_user()">
+</div>
+
+
+<div id="interactive_content_box">
+    <div id="similar_users_box" style="text-align: center;">
+            <div id='header' style="background:     #383838;margin-top: 0px;padding-top: 0px;height: 1.5cm;">
+            <h3 style='text-align: center;margin-top: 0px;color:white;padding-top: 0.35cm;'>Similar Users</h3>
+            </div>
+
+            <div id="similar_users_box_inner_wow">
+            </div>
+    </div>
+
+    <div id="food_recommendation_box" style="text-align: center;">
+            <div id='header' style="background:     #383838;margin-top: 0px;padding-top: 0px;height: 1.5cm;">
+            <h3 style='text-align: center;margin-top: 0px;color:white;padding-top: 0.35cm;'>Food You Might Like</h3>
+            </div>
+            <div id="food_recommendation_box_inner">
+            </div>
+    </div>
+
+
+    <div id="hotel_recommendation_box">
+            <div id='header' style="background:     #383838;margin-top: 0px;padding-top: 0px;height: 1.5cm;">
+            <h3 style='text-align: center;margin-top: 0px;color:white;padding-top: 0.35cm;'>Hotels We Recommend</h3>
+            </div>
+            <div id="hotel_recommendation_box_inner" style="text-align: center;">
+            </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function get_similar_user(){
+        login_user_name = document.getElementById("login_user_name").value;
+
+        // Perform get request
+
+        const Http = new XMLHttpRequest();
+        const url = "http://localhost:7005/similar_users/"+login_user_name;
+        Http.open("GET",url);
+        Http.send();
+
+        Http.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){
+                res = JSON.parse(Http.responseText);
+                if(res['input_user_login'] == false){
+                    alert("Invalid user!! \nPlease enter a valid user!");
+                }
+                else{
+                    if(res['status'] == "SUCCESS"){
+                        similar_users = res['similar_users']
+                        similar_user_box_t = document.getElementById("similar_users_box_inner_wow");
+                        similar_user_box_t.innerHTML="";
+
+                        for (var i=0; i < similar_users.length; i++){
+                            names = similar_users[i];
+                            similar_users_box.innerHTML += "<input id='similar_user_button_"+i+"' class='similar_user_button' type='submit' value='"+names+"' onclick='get_food_recommendation(this)'/><br>";
+                        }
+                    }
+                    else{
+                        alert("Request Failed!!");
+                    }
+                }
+            }
+        }
+    }
+
+    function get_food_recommendation(ele){
+        login_user_name = document.getElementById("login_user_name").value;
+        selected_user_name = ele.value;
+        // Perform get request
+
+        const Http = new XMLHttpRequest();
+        const url = "http://localhost:7005/food_recommendation/"+login_user_name+"/"+selected_user_name;
+
+        Http.open("GET",url);
+        Http.send();
+
+        Http.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){
+                res = JSON.parse(Http.responseText);
+                if(res['status'] == "SUCCESS"){
+                    foods = res['recommended_food']
+                    food_recommendation_box = document.getElementById("food_recommendation_box_inner");
+                    food_recommendation_box.innerHTML="";
+
+                    for (var i=0; i < foods.length; i++){
+                        names = foods[i];
+                        food_recommendation_box.innerHTML += "<input id='food_recommendation_button"+i+"' class='food_recommendation_button' type='submit' value='"+names+"' onclick='get_hotel_recommendation(this)'><br>";
+                    }
+                }
+                else{
+                    alert("Request Failed!!");
+                }
+            
+            }
+        }
+    }
+
+    function get_hotel_recommendation(ele){
+        food_name = ele.value;
+        // Perform get request
+
+        const Http = new XMLHttpRequest();
+        const url = "http://localhost:7005/hotel_recommendation/"+food_name;
+
+        Http.open("GET",url);
+        Http.send();
+
+        Http.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){
+                res = JSON.parse(Http.responseText);
+                if(res['status'] == "SUCCESS"){
+                    hotels = res['recommended_hotels']
+                    hotel_recommendation_box = document.getElementById("hotel_recommendation_box_inner");
+                    hotel_recommendation_box.innerHTML="";
+
+                    for (var i=0; i < hotels.length; i++){
+                        names = hotels[i];
+                        hotel_recommendation_box.innerHTML += "<input id='hotel_recommendation_button"+i+"' class='hotel_recommendation_button' type='submit' value='"+names+"'><br>";
+                    }
+                }
+                else{
+                    alert("Request Failed!!");
+                }
+            
+            }
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

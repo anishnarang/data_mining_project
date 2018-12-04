@@ -11,7 +11,7 @@ class FindBusiness:
 		self.business_to_food = business_to_food
 		self.food_to_business = food_to_business
 
-	def suggestBusiness(self, user1, user2, foods):
+	def suggestBusiness(self, foods, k):
 		final_business = defaultdict()
 		for food in foods:
 			candidate_business = defaultdict()
@@ -19,8 +19,8 @@ class FindBusiness:
 			for business in businesses:
 				rating = self.business_to_food[business][food]
 				candidate_business[business] = rating
-			final_business[food] = sorted(candidate_business, key = candidate_business.get, reverse=True)[:5]
-		return final_business
+			final_business[food] = sorted(candidate_business, key = candidate_business.get, reverse=True)[:k]
+		return final_business[foods[0]]
 
 if __name__ == '__main__':
 
